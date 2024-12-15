@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F3923C82D0F4CC500793D5A /* TipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3923C72D0F4CB000793D5A /* TipsView.swift */; };
+		3F3923CB2D0F524D00793D5A /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3923CA2D0F524D00793D5A /* WelcomeViewController.swift */; };
+		3F3923CD2D0F526600793D5A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3923CC2D0F526600793D5A /* WelcomeView.swift */; };
+		3F3923D12D0F609700793D5A /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3923D02D0F609700793D5A /* UIViewController+Extensions.swift */; };
 		3F88E6712D07C1B700C29FD1 /* NearbyFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F88E6642D07C1B700C29FD1 /* NearbyFlowController.swift */; };
 		3F88E6722D07C1B700C29FD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F88E6672D07C1B700C29FD1 /* AppDelegate.swift */; };
 		3F88E6732D07C1B700C29FD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F88E66E2D07C1B700C29FD1 /* SceneDelegate.swift */; };
@@ -18,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F3923C72D0F4CB000793D5A /* TipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsView.swift; sourceTree = "<group>"; };
+		3F3923CA2D0F524D00793D5A /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		3F3923CC2D0F526600793D5A /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		3F3923D02D0F609700793D5A /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		3F3DAB012D07BC3B00998888 /* Nearby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nearby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F88E6642D07C1B700C29FD1 /* NearbyFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyFlowController.swift; sourceTree = "<group>"; };
 		3F88E6672D07C1B700C29FD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +49,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F3923C62D0F4C8F00793D5A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3F3923C72D0F4CB000793D5A /* TipsView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3F3923C92D0F522400793D5A /* WelcomeView */ = {
+			isa = PBXGroup;
+			children = (
+				3F3923CC2D0F526600793D5A /* WelcomeView.swift */,
+				3F3923CA2D0F524D00793D5A /* WelcomeViewController.swift */,
+			);
+			path = WelcomeView;
+			sourceTree = "<group>";
+		};
+		3F3923CE2D0F604000793D5A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				3F3923CF2D0F605400793D5A /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		3F3923CF2D0F605400793D5A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3F3923D02D0F609700793D5A /* UIViewController+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		3F3DAAF82D07BC3B00998888 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +109,8 @@
 		3F88E6662D07C1B700C29FD1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3FA2FDF42D0F24B100E0BFA3 /* Assets */,
+				3F3923C62D0F4C8F00793D5A /* Components */,
 				3F88E6792D07C1F800C29FD1 /* Constants */,
 			);
 			path = Resources;
@@ -79,7 +122,7 @@
 				3F88E67A2D07C21500C29FD1 /* Aplication */,
 				3F88E6652D07C1B700C29FD1 /* Sources */,
 				3F88E6662D07C1B700C29FD1 /* Resources */,
-				3F88E6682D07C1B700C29FD1 /* Assets.xcassets */,
+				3F3923CE2D0F604000793D5A /* Utils */,
 				3F88E6692D07C1B700C29FD1 /* Info.plist */,
 				3F88E66F2D07C1B700C29FD1 /* ViewController.swift */,
 			);
@@ -124,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				3F88E6802D07C82200C29FD1 /* Splash */,
+				3F3923C92D0F522400793D5A /* WelcomeView */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -135,6 +179,14 @@
 				3F88E6812D07C85500C29FD1 /* SplashViewController.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		3FA2FDF42D0F24B100E0BFA3 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				3F88E6682D07C1B700C29FD1 /* Assets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,10 +261,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F3923CB2D0F524D00793D5A /* WelcomeViewController.swift in Sources */,
 				3F88E6712D07C1B700C29FD1 /* NearbyFlowController.swift in Sources */,
 				3F88E67C2D07C27A00C29FD1 /* Colors.swift in Sources */,
 				3F88E6722D07C1B700C29FD1 /* AppDelegate.swift in Sources */,
 				3F88E6822D07C85500C29FD1 /* SplashViewController.swift in Sources */,
+				3F3923CD2D0F526600793D5A /* WelcomeView.swift in Sources */,
+				3F3923D12D0F609700793D5A /* UIViewController+Extensions.swift in Sources */,
+				3F3923C82D0F4CC500793D5A /* TipsView.swift in Sources */,
 				3F88E6732D07C1B700C29FD1 /* SceneDelegate.swift in Sources */,
 				3F88E6742D07C1B700C29FD1 /* ViewController.swift in Sources */,
 				3F88E6842D07C89700C29FD1 /* SplashView.swift in Sources */,
