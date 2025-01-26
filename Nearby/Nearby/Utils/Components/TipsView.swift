@@ -20,12 +20,16 @@ public class TipsView: UIView {
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.font = Typography.titleSM
         return label
     }()
     
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.font = Typography.textSM
         return label
     }()
     
@@ -44,7 +48,9 @@ public class TipsView: UIView {
                                 description: String) {
         iconImageView.image = icon
         titleLabel.text = title
+        titleLabel.textColor = Colors.gray600
         descriptionLabel.text = description
+        descriptionLabel.textColor = Colors.gray500
     }
     
     private func setupUI() {
@@ -62,15 +68,14 @@ public class TipsView: UIView {
             iconImageView.heightAnchor.constraint(equalToConstant: 24),
             iconImageView.widthAnchor.constraint(equalToConstant: 24),
             
-            titleLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8),
-            titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 16),
+            titleLabel.topAnchor.constraint(equalTo: iconImageView.topAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
             descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
             descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             descriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
-            
         ])
     }
 }

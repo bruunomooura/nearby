@@ -12,7 +12,7 @@ class WelcomeView: UIView {
     private lazy var logoImageView: UIImageView = {
         let imageView: UIImageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "logo")
+        imageView.image = UIImage(resource: .pinLogo)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
@@ -21,6 +21,8 @@ class WelcomeView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Boas vindas ao Nearby!"
+        label.textColor = Colors.gray600
+        label.font = Typography.titleXL
         return label
     }()
 
@@ -28,6 +30,19 @@ class WelcomeView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Tenha cupons de vantagem para usar em seus estabelecimentos favoritos"
+        label.numberOfLines = 0
+        label.textColor = Colors.gray500
+        label.font = Typography.textMD
+        return label
+    }()
+    
+    private lazy var subTextForTipsLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Veja como funciona:"
+        label.numberOfLines = 0
+        label.textColor = Colors.gray500
+        label.font = Typography.textMD
         return label
     }()
     
@@ -35,7 +50,7 @@ class WelcomeView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 16
+        stackView.spacing = 24
 //        stackView.isLayoutMarginsRelativeArrangement = <#Bool#>
 //        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: <#CGFloat#>,
 //                                                                     leading: <#CGFloat#>,
@@ -53,6 +68,7 @@ class WelcomeView: UIView {
         button.setTitle("Começar", for: .normal)
         button.backgroundColor = Colors.greenBase
         button.setTitleColor(Colors.gray100, for: .normal)
+        button.titleLabel?.font = Typography.action
         button.layer.cornerRadius = 8
         button.addTarget(self, action: #selector(tappedStartButton), for: .touchDown)
         return button
@@ -61,10 +77,10 @@ class WelcomeView: UIView {
     @objc
     private func tappedStartButton(_ sender: UIButton) {
 //        sender.animateTap()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
-            guard let self = self else { return }
-//            <#action#>
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+//            guard let self = self else { return }
+////            <#action#>
+//        }
     }
     
     override init(frame: CGRect) {
@@ -81,8 +97,9 @@ class WelcomeView: UIView {
         addSubview(logoImageView)
         addSubview(welcomeLabel)
         addSubview(descriptionLabel)
+        addSubview(subTextForTipsLabel)
         addSubview(tipsStackView)
-        
+        addSubview(startButton)
         setupConstraints()
     }
     
@@ -109,24 +126,31 @@ class WelcomeView: UIView {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: topAnchor, constant: 4),
-            logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
+            logoImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 40),
+            logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
             logoImageView.widthAnchor.constraint(equalToConstant: 48),
             logoImageView.heightAnchor.constraint(equalToConstant: 48),
             
-            welcomeLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 8),
-            welcomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
+            welcomeLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 40),
+            welcomeLabel.leadingAnchor.constraint(equalTo: logoImageView.leadingAnchor),
+            welcomeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             
-            descriptionLabel.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 4),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            descriptionLabel.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 20),
+            descriptionLabel.leadingAnchor.constraint(equalTo: logoImageView.leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: welcomeLabel.trailingAnchor),
             
-            tipsStackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8),
-            tipsStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            tipsStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            subTextForTipsLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 40),
+            subTextForTipsLabel.leadingAnchor.constraint(equalTo: logoImageView.leadingAnchor),
+            descriptionLabel.trailingAnchor.constraint(equalTo: descriptionLabel.trailingAnchor),
             
-            startButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8),
-            startButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            startButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+            tipsStackView.topAnchor.constraint(equalTo: subTextForTipsLabel.bottomAnchor, constant: 20),
+            tipsStackView.leadingAnchor.constraint(equalTo: logoImageView.leadingAnchor),
+            tipsStackView.trailingAnchor.constraint(equalTo: welcomeLabel.trailingAnchor),
+            
+            startButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
+            startButton.leadingAnchor.constraint(equalTo: logoImageView.leadingAnchor),
+            startButton.trailingAnchor.constraint(equalTo: tipsStackView.trailingAnchor),
+            startButton.heightAnchor.constraint(equalToConstant: 56)
         ])
     }
 }

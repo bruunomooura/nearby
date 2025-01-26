@@ -27,7 +27,7 @@ class WelcomeViewController: UIViewController {
     
     private func setup() {
         self.view.addSubview(contentView)
-        self.view.backgroundColor = Colors.gray100
+        self.view.backgroundColor = .white
         setupConstraints()
     }
 
