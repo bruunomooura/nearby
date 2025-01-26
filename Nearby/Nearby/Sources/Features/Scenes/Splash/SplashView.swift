@@ -22,7 +22,7 @@ class SplashView: UIView {
         let imageView: UIImageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "backgroundImage")
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
@@ -46,6 +46,8 @@ class SplashView: UIView {
             logoImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             logoImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             
+            backgroundImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             backgroundImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
